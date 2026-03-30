@@ -3,6 +3,7 @@ package com.bookmystay;
 import java.util.*;
 
 public class RoomInventory {
+
     private Map<String, Integer> inventory;
 
     public RoomInventory() {
@@ -26,7 +27,10 @@ public class RoomInventory {
         inventory.put(roomType, inventory.getOrDefault(roomType, 0) + 1);
     }
 
-    // (Optional but useful for printing)
+    public void resetInventory() {
+        inventory.clear();
+    }
+
     public int getAvailableRooms(String roomType) {
         return inventory.getOrDefault(roomType, 0);
     }
