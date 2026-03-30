@@ -17,6 +17,17 @@ public class RoomInventory {
     }
 
     public void decrementRoom(String roomType) {
-        inventory.put(roomType, inventory.get(roomType) - 1);
+        if (inventory.containsKey(roomType) && inventory.get(roomType) > 0) {
+            inventory.put(roomType, inventory.get(roomType) - 1);
+        }
+    }
+
+    public void incrementRoom(String roomType) {
+        inventory.put(roomType, inventory.getOrDefault(roomType, 0) + 1);
+    }
+
+    // (Optional but useful for printing)
+    public int getAvailableRooms(String roomType) {
+        return inventory.getOrDefault(roomType, 0);
     }
 }
